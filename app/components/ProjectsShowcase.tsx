@@ -4,39 +4,20 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { projects as projectsData, PROJECT_SLUGS } from "../lib/constants";
 
-const projects = [
-  {
-    slug: "meditrack",
-    title: "MediTrack — Healthcare Management System",
-    category: "Web Application",
-    description:
-      "A full-stack patient management system with appointment scheduling, medical records, and real-time notifications. Built with MERN stack and deployed on AWS.",
-    tags: ["React", "Node.js", "MongoDB", "AWS"],
-    gradient: "from-[#E8F0E9] to-[#D4E6D6]",
-    accent: "var(--color-sage)",
-  },
-  {
-    slug: "sentimentscope",
-    title: "SentimentScope — Social Media Analyzer",
-    category: "AI / ML Project",
-    description:
-      "A real-time sentiment analysis tool that processes tweets and reviews using NLP. Features dashboard visualization, trend detection, and exportable reports.",
-    tags: ["Python", "TensorFlow", "Flask", "NLP"],
-    gradient: "from-[#F5E6C8] to-[#EDD9B0]",
-    accent: "var(--color-amber)",
-  },
-  {
-    slug: "educonnect",
-    title: "EduConnect — Learning Platform",
-    category: "Web Application",
-    description:
-      "An interactive e-learning platform with video courses, quizzes, progress tracking, and certificate generation. Complete with payment integration and admin panel.",
-    tags: ["Next.js", "PostgreSQL", "Stripe", "Tailwind"],
-    gradient: "from-[#F5E8E3] to-[#EBDAD3]",
-    accent: "var(--color-blush)",
-  },
-];
+const projects = PROJECT_SLUGS.map((slug) => {
+  const p = projectsData[slug];
+  return {
+    slug: p.slug,
+    title: p.title,
+    category: p.category,
+    description: p.tagline,
+    tags: p.tags.slice(0, 4),
+    gradient: p.gradient,
+    accent: p.accent,
+  };
+});
 
 export default function ProjectsShowcase() {
   const ref = useRef(null);
