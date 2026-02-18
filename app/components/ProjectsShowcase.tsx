@@ -2,10 +2,12 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const projects = [
   {
+    slug: "meditrack",
     title: "MediTrack — Healthcare Management System",
     category: "Web Application",
     description:
@@ -15,6 +17,7 @@ const projects = [
     accent: "var(--color-sage)",
   },
   {
+    slug: "sentimentscope",
     title: "SentimentScope — Social Media Analyzer",
     category: "AI / ML Project",
     description:
@@ -24,6 +27,7 @@ const projects = [
     accent: "var(--color-amber)",
   },
   {
+    slug: "educonnect",
     title: "EduConnect — Learning Platform",
     category: "Web Application",
     description:
@@ -86,57 +90,59 @@ export default function ProjectsShowcase() {
               }}
               className="group cursor-pointer"
             >
-              {/* Card image area */}
-              <div
-                className={`relative aspect-[4/3] rounded-xl bg-gradient-to-br ${project.gradient} mb-5 overflow-hidden`}
-              >
-                {/* Abstract shapes for visual interest */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div
-                    className="w-24 h-24 rounded-2xl border-2 opacity-30 rotate-12 group-hover:rotate-45 transition-transform duration-700"
-                    style={{ borderColor: project.accent }}
-                  />
-                  <div
-                    className="absolute w-16 h-16 rounded-full border-2 opacity-20 -rotate-12 group-hover:rotate-12 transition-transform duration-700 translate-x-8 translate-y-4"
-                    style={{ borderColor: project.accent }}
-                  />
+              <Link href={`/projects/${project.slug}`} className="block">
+                {/* Card image area */}
+                <div
+                  className={`relative aspect-[4/3] rounded-xl bg-gradient-to-br ${project.gradient} mb-5 overflow-hidden`}
+                >
+                  {/* Abstract shapes for visual interest */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div
+                      className="w-24 h-24 rounded-2xl border-2 opacity-30 rotate-12 group-hover:rotate-45 transition-transform duration-700"
+                      style={{ borderColor: project.accent }}
+                    />
+                    <div
+                      className="absolute w-16 h-16 rounded-full border-2 opacity-20 -rotate-12 group-hover:rotate-12 transition-transform duration-700 translate-x-8 translate-y-4"
+                      style={{ borderColor: project.accent }}
+                    />
+                  </div>
+
+                  {/* Category badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="badge badge-ink">{project.category}</span>
+                  </div>
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-[var(--color-ink)] opacity-0 group-hover:opacity-80 transition-opacity duration-400 flex items-center justify-center">
+                    <div className="text-[var(--color-ivory)] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      <span className="text-sm font-semibold font-[var(--font-display)]">
+                        View Case Study
+                      </span>
+                      <ArrowUpRight size={14} />
+                    </div>
+                  </div>
                 </div>
 
-                {/* Category badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="badge badge-ink">{project.category}</span>
-                </div>
+                {/* Content */}
+                <h3 className="font-[var(--font-display)] font-semibold text-lg text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-amber)] transition-colors duration-300">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-[var(--color-graphite)] leading-relaxed mb-4">
+                  {project.description}
+                </p>
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[var(--color-ink)] opacity-0 group-hover:opacity-80 transition-opacity duration-400 flex items-center justify-center">
-                  <motion.div className="text-[var(--color-ivory)] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                    <span className="text-sm font-semibold font-[var(--font-display)]">
-                      View Details
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 text-xs font-medium rounded-full border border-[var(--color-border)] text-[var(--color-stone)]"
+                    >
+                      {tag}
                     </span>
-                    <ExternalLink size={14} />
-                  </motion.div>
+                  ))}
                 </div>
-              </div>
-
-              {/* Content */}
-              <h3 className="font-[var(--font-display)] font-semibold text-lg text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-amber)] transition-colors duration-300">
-                {project.title}
-              </h3>
-              <p className="text-sm text-[var(--color-graphite)] leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-0.5 text-xs font-medium rounded-full border border-[var(--color-border)] text-[var(--color-stone)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
