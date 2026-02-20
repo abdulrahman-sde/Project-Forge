@@ -65,7 +65,7 @@ export default function PricingSection() {
     <section id="pricing" className="section-padding" ref={ref}>
       <div className="section-wrapper">
         {/* Header */}
-        <div className="text-center max-w-[600px] mx-auto mb-16">
+        <div className="text-center max-w-150 mx-auto mb-16">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -118,30 +118,30 @@ export default function PricingSection() {
               )}
 
               {/* Tier name and price */}
-              <h3 className="font-[var(--font-display)] font-semibold text-lg text-[var(--color-ink)] mb-2">
+              <h3 className="font-semibold text-lg text-(--color-ink) mb-2">
                 {tier.name}
               </h3>
-              <p className="text-sm text-[var(--color-stone)] mb-5">
+              <p className="text-sm text-stone mb-5">
                 {tier.description}
               </p>
               <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-sm text-[var(--color-stone)]">PKR</span>
-                <span className="text-4xl font-bold font-[var(--font-display)] text-[var(--color-ink)] tracking-tight">
+                <span className="text-sm text-stone">PKR</span>
+                <span className="text-4xl font-bold text-(--color-ink) tracking-tight">
                   {tier.price}
                 </span>
               </div>
 
               {/* Divider */}
-              <div className="h-[1px] bg-[var(--color-border)] mb-6" />
+              <div className="h-px bg-border mb-6" />
 
               {/* Features */}
               <ul className="space-y-3 mb-8">
                 {tier.features.map((feature, j) => (
                   <li key={j} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-[var(--color-sage-light)] flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={11} className="text-[var(--color-sage)]" />
+                    <div className="w-5 h-5 rounded-full bg-sage-light flex items-center justify-center shrink-0 mt-0.5">
+                      <Check size={11} className="text-sage" />
                     </div>
-                    <span className="text-sm text-[var(--color-graphite)]">
+                    <span className="text-sm text-graphite">
                       {feature}
                     </span>
                   </li>

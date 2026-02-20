@@ -50,12 +50,12 @@ export default function ProcessSection() {
   return (
     <section
       id="process"
-      className="section-padding bg-[var(--color-silk)]"
+      className="section-padding bg-silk"
       ref={ref}
     >
       <div className="section-wrapper">
         {/* Header */}
-        <div className="text-center max-w-[600px] mx-auto mb-16">
+        <div className="text-center max-w-150 mx-auto mb-16">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -83,9 +83,9 @@ export default function ProcessSection() {
         </div>
 
         {/* Timeline */}
-        <div className="relative max-w-[700px] mx-auto">
+        <div className="relative max-w-175 mx-auto">
           {/* Connecting line */}
-          <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-[2px] bg-[var(--color-border)] md:-translate-x-[1px]" />
+          <div className="absolute left-7 md:left-1/2 top-0 bottom-0 w-0.5 bg-border md:-translate-x-px" />
 
           {steps.map((step, i) => {
             const isLeft = i % 2 === 0;
@@ -120,17 +120,17 @@ export default function ProcessSection() {
                         isLeft ? "md:flex-row-reverse" : ""
                       }`}
                     >
-                      <div className="w-9 h-9 rounded-lg bg-[var(--color-amber-light)] flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-lg bg-amber-light flex items-center justify-center shrink-0">
                         <step.icon
                           size={18}
-                          className="text-[var(--color-amber-dark)]"
+                          className="text-amber-dark"
                         />
                       </div>
-                      <h3 className="font-[var(--font-display)] font-semibold text-base text-[var(--color-ink)]">
+                      <h3 className="font-semibold text-base text-(--color-ink)">
                         {step.title}
                       </h3>
                     </div>
-                    <p className="text-sm text-[var(--color-graphite)] leading-relaxed">
+                    <p className="text-sm text-graphite leading-relaxed">
                       {step.description}
                     </p>
                   </div>
@@ -138,8 +138,8 @@ export default function ProcessSection() {
 
                 {/* Number circle - positioned on the line */}
                 <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-4 z-10">
-                  <div className="w-14 h-14 rounded-full bg-[var(--color-ink)] flex items-center justify-center border-4 border-[var(--color-silk)]">
-                    <span className="text-[var(--color-ivory)] font-[var(--font-display)] font-bold text-sm">
+                  <div className="w-14 h-14 rounded-full bg-(--color-ink) flex items-center justify-center border-4 border-silk">
+                    <span className="text-(--color-ivory) font-bold text-sm">
                       0{i + 1}
                     </span>
                   </div>

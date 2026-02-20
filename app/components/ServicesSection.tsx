@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Globe, Brain, FileText, Presentation } from "lucide-react";
+import { Globe, Brain, FileText, Smartphone } from "lucide-react";
 
 const services = [
   {
@@ -11,6 +11,15 @@ const services = [
     description:
       "Full-stack web applications using React, Next.js, MERN, Django, Laravel, and more. Complete with database design, API integration, and deployment-ready code.",
     tags: ["React", "Next.js", "Node.js", "Django", "Laravel"],
+    accent: "var(--color-amber)",
+    accentLight: "var(--color-amber-light)",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Applications",
+    description:
+      "Cross-platform mobile apps built with React Native, Expo, or native frameworks. Includes app design, development, testing, and deployment.",
+    tags: ["React Native", "Expo", "iOS", "Android"],
     accent: "var(--color-amber)",
     accentLight: "var(--color-amber-light)",
   },
@@ -32,15 +41,6 @@ const services = [
     accent: "var(--color-blush)",
     accentLight: "var(--color-blush-light)",
   },
-  {
-    icon: Presentation,
-    title: "Presentation & Defense",
-    description:
-      "Polished presentation slides, defense preparation guides, demo walkthroughs, and viva coaching. Walk into your defense with complete confidence.",
-    tags: ["Slides", "Demo", "Viva Prep", "Walkthrough"],
-    accent: "var(--color-amber)",
-    accentLight: "var(--color-amber-light)",
-  },
 ];
 
 export default function ServicesSection() {
@@ -51,7 +51,7 @@ export default function ServicesSection() {
     <section id="services" className="section-padding" ref={ref}>
       <div className="section-wrapper">
         {/* Section header */}
-        <div className="max-w-[600px] mb-16">
+        <div className="max-w-150 mb-16">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -102,7 +102,7 @@ export default function ServicesSection() {
               </div>
 
               {/* Content */}
-              <h3 className="text-heading-2 mb-3 text-[var(--color-ink)]">
+              <h3 className="text-heading-2 mb-3 text-(--color-ink)">
                 {service.title}
               </h3>
               <p className="text-body mb-5">{service.description}</p>
@@ -112,7 +112,7 @@ export default function ServicesSection() {
                 {service.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs font-medium rounded-full border border-[var(--color-border)] text-[var(--color-stone)] bg-[var(--color-ivory)]"
+                    className="px-3 py-1 text-xs font-medium rounded-full border border-border text-stone bg-(--color-ivory)"
                   >
                     {tag}
                   </span>
