@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
 
 const trustBadges = [
-  { icon: CheckCircle, text: "500+ Projects Delivered" },
+  { icon: CheckCircle, text: "100+ Projects Delivered" },
   { icon: Shield, text: "100% Confidential" },
   { icon: Clock, text: "On-Time Guarantee" },
 ];
@@ -26,19 +26,19 @@ export default function HeroSection() {
       <div className="absolute inset-0 geo-pattern" />
 
       {/* Decorative elements */}
-      <div className="absolute top-[15%] right-[8%] w-[300px] h-[300px] rounded-full bg-[var(--color-amber)] opacity-[0.04] blur-[80px]" />
-      <div className="absolute bottom-[20%] left-[5%] w-[250px] h-[250px] rounded-full bg-[var(--color-sage)] opacity-[0.05] blur-[60px]" />
+      <div className="absolute top-[15%] right-[8%] w-75 h-75 rounded-full bg-amber opacity-[0.04] blur-[80px]" />
+      <div className="absolute bottom-[20%] left-[5%] w-62.5 h-62.5 rounded-full bg-sage opacity-[0.05] blur-[60px]" />
 
       {/* Diagonal accent line */}
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ duration: 1.2, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute top-0 right-[15%] w-[1px] h-[60%] bg-gradient-to-b from-transparent via-[var(--color-amber)] to-transparent origin-top hidden lg:block"
+        className="absolute top-0 right-[15%] w-px h-[60%] bg-linear-to-b from-transparent via-amber to-transparent origin-top hidden lg:block"
       />
 
       <div className="section-wrapper relative z-10 w-full">
-        <div className="max-w-[800px]">
+        <div className="max-w-200">
           {/* Label */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,7 +63,7 @@ export default function HeroSection() {
                 }}
                 className={`inline-block mr-3 ${
                   word === "FYP" || word === "Experts."
-                    ? "text-[var(--color-amber)]"
+                    ? "text-amber"
                     : ""
                 }`}
               >
@@ -77,7 +77,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-body-lg max-w-[580px] mb-10"
+            className="text-body-lg max-w-145 mb-10"
           >
             We design, develop, and document your entire Final Year Project —
             from SRS to source code, presentations to defense prep. You focus on
@@ -115,13 +115,13 @@ export default function HeroSection() {
                 transition={{ duration: 0.5, delay: 1.4 + i * 0.1 }}
                 className="flex items-center gap-2.5"
               >
-                <div className="w-8 h-8 rounded-full bg-[var(--color-amber-light)] flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-amber-light flex items-center justify-center">
                   <badge.icon
                     size={15}
-                    className="text-[var(--color-amber-dark)]"
+                    className="text-amber-dark"
                   />
                 </div>
-                <span className="text-sm font-medium text-[var(--color-graphite)]">
+                <span className="text-sm font-medium text-graphite">
                   {badge.text}
                 </span>
               </motion.div>
@@ -139,34 +139,34 @@ export default function HeroSection() {
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[280px] bg-white/80 backdrop-blur-lg rounded-2xl border border-[var(--color-border)] p-6 shadow-[0_20px_60px_-15px_rgba(27,27,24,0.1)]"
+            className="w-70 bg-white/80 backdrop-blur-lg rounded-2xl border border-border p-6 shadow-[0_20px_60px_-15px_rgba(27,27,24,0.1)]"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-[var(--color-sage-light)] flex items-center justify-center">
-                <CheckCircle size={18} className="text-[var(--color-sage)]" />
+              <div className="w-10 h-10 rounded-xl bg-sage-light flex items-center justify-center">
+                <CheckCircle size={18} className="text-sage" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[var(--color-ink)]">
+                <p className="text-sm font-semibold text-(--color-ink)">
                   Project Delivered
                 </p>
-                <p className="text-xs text-[var(--color-stone)]">Just now</p>
+                <p className="text-xs text-stone">Just now</p>
               </div>
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-[var(--color-stone)]">
+                <span className="text-xs text-stone">
                   Progress
                 </span>
-                <span className="text-xs font-semibold text-[var(--color-sage)]">
+                <span className="text-xs font-semibold text-sage">
                   100%
                 </span>
               </div>
-              <div className="h-1.5 bg-[var(--color-silk)] rounded-full overflow-hidden">
+              <div className="h-1.5 bg-silk rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 2, delay: 1.8, ease: "easeOut" }}
-                  className="h-full bg-[var(--color-sage)] rounded-full"
+                  className="h-full bg-sage rounded-full"
                 />
               </div>
             </div>

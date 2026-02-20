@@ -4,9 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Delivered" },
+  { value: 100, suffix: "+", label: "Projects Delivered" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 150, suffix: "+", label: "Universities Covered" },
+  { value: 20, suffix: "+", label: "Universities Covered" },
   { value: 24, suffix: "/7", label: "Support Available" },
 ];
 
@@ -59,7 +59,7 @@ export default function StatsBar() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="bg-[var(--color-ink)] rounded-2xl py-8 md:py-10 px-6 md:px-12"
+          className="bg-(--color-ink) rounded-2xl py-8 md:py-10 px-6 md:px-12"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
             {stats.map((stat, i) => (
@@ -71,7 +71,7 @@ export default function StatsBar() {
                     : ""
                 }`}
               >
-                <div className="text-3xl md:text-4xl font-bold text-[var(--color-ivory)] font-[var(--font-display)] tracking-tight mb-1">
+                <div className="text-3xl md:text-4xl font-bold text-(--color-ivory) tracking-tight mb-1">
                   <AnimatedCounter
                     target={stat.value}
                     suffix={stat.suffix}

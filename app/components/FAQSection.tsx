@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "Can you match my university's specific format?",
     answer:
-      "Yes — we've worked with 150+ universities and are familiar with various documentation formats, citation styles, and submission guidelines. Just share your university's template or guidelines, and we'll follow them precisely.",
+      "Yes — we've worked with 20+ universities and are familiar with various documentation formats, citation styles, and submission guidelines. Just share your university's template or guidelines, and we'll follow them precisely.",
   },
   {
     question: "What if my supervisor asks for changes?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "How do payments work?",
     answer:
-      "We work on a milestone-based payment system: 50% upfront to begin work, and 50% upon delivery and your approval. We accept bank transfers, JazzCash, EasyPaisa, and international payments. No hidden fees.",
+      "We work on a milestone-based payment system: 30% upfront to begin work, and 70% upon delivery and your approval. We accept bank transfers, JazzCash, EasyPaisa, and international payments. No hidden fees.",
   },
   {
     question: "Can I see progress during development?",
@@ -63,13 +63,13 @@ function FAQItem({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05 }}
-      className="border-b border-[var(--color-border)]"
+      className="border-b border-border"
     >
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-5 text-left group"
       >
-        <span className="font-[var(--font-display)] font-semibold text-[0.95rem] text-[var(--color-ink)] pr-8 group-hover:text-[var(--color-amber)] transition-colors duration-300">
+        <span className="font-semibold text-[0.95rem] text-(--color-ink) pr-8 group-hover:text-amber transition-colors duration-300">
           {faq.question}
         </span>
         <motion.div
@@ -77,7 +77,7 @@ function FAQItem({
           transition={{ duration: 0.3 }}
           className="shrink-0"
         >
-          <ChevronDown size={18} className="text-[var(--color-stone)]" />
+          <ChevronDown size={18} className="text-stone" />
         </motion.div>
       </button>
       <AnimatePresence>
@@ -89,7 +89,7 @@ function FAQItem({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="pb-5 text-sm text-[var(--color-graphite)] leading-relaxed max-w-[700px]">
+            <p className="pb-5 text-sm text-graphite leading-relaxed max-w-175">
               {faq.answer}
             </p>
           </motion.div>
@@ -107,7 +107,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="section-padding bg-[var(--color-silk)]"
+      className="section-padding bg-silk"
       ref={ref}
     >
       <div className="section-wrapper">

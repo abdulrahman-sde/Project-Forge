@@ -7,7 +7,7 @@ import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     name: "Ahmed Khurram",
-    university: "COMSATS University",
+    university: "Ripah University",
     rating: 5,
     text: "They built my entire e-commerce FYP in 3 weeks — React frontend, Node backend, and full documentation. My supervisor was genuinely impressed with the SRS quality. Got an A without a single revision.",
     initials: "AK",
@@ -15,7 +15,7 @@ const testimonials = [
   },
   {
     name: "Fatima Noor",
-    university: "FAST-NUCES",
+    university: "TUF University",
     rating: 5,
     text: "I was desperate with my AI project deadline approaching. ProjectForge delivered a complete sentiment analysis system with TensorFlow, plus a 60-page report and presentation deck. Lifesaver!",
     initials: "FN",
@@ -23,7 +23,7 @@ const testimonials = [
   },
   {
     name: "Hassan Ali",
-    university: "NUST",
+    university: "Agriculture University",
     rating: 5,
     text: "The documentation quality alone was worth it. My project had proper UML diagrams, ER diagrams, test cases — everything my university demanded. The code was clean and well-commented too.",
     initials: "HA",
@@ -59,11 +59,11 @@ export default function TestimonialsSection() {
   const prev = () => setCurrent((p) => Math.max(p - 1, 0));
 
   return (
-    <section className="section-padding bg-[var(--color-silk)]" ref={ref}>
+    <section className="section-padding bg-silk" ref={ref}>
       <div className="section-wrapper">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <div className="max-w-[500px]">
+          <div className="max-w-125">
             <motion.span
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -90,14 +90,14 @@ export default function TestimonialsSection() {
             <button
               onClick={prev}
               disabled={current === 0}
-              className="w-11 h-11 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center hover:bg-[var(--color-ink)] hover:text-[var(--color-ivory)] hover:border-[var(--color-ink)] transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[var(--color-ink)] disabled:hover:border-[var(--color-border-strong)]"
+              className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center hover:bg-(--color-ink) hover:text-(--color-ivory) hover:border-(--color-ink) transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-(--color-ink) disabled:hover:border-border-strong"
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={next}
               disabled={current >= maxIndex}
-              className="w-11 h-11 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center hover:bg-[var(--color-ink)] hover:text-[var(--color-ivory)] hover:border-[var(--color-ink)] transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-[var(--color-ink)] disabled:hover:border-[var(--color-border-strong)]"
+              className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center hover:bg-(--color-ink) hover:text-(--color-ivory) hover:border-(--color-ink) transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-(--color-ink) disabled:hover:border-border-strong"
             >
               <ChevronRight size={18} />
             </button>
@@ -123,9 +123,9 @@ export default function TestimonialsSection() {
               >
                 <Quote
                   size={28}
-                  className="text-[var(--color-amber)] opacity-30 mb-4"
+                  className="text-amber opacity-30 mb-4"
                 />
-                <p className="text-[var(--color-ink)] text-[0.95rem] leading-relaxed mb-6">
+                <p className="text-(--color-ink) text-[0.95rem] leading-relaxed mb-6">
                   &ldquo;{t.text}&rdquo;
                 </p>
                 <div className="flex items-center gap-1 mb-4">
@@ -134,22 +134,22 @@ export default function TestimonialsSection() {
                       key={j}
                       size={14}
                       fill="var(--color-amber)"
-                      className="text-[var(--color-amber)]"
+                      className="text-amber"
                     />
                   ))}
                 </div>
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold font-[var(--font-display)]"
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold"
                     style={{ backgroundColor: t.color }}
                   >
                     {t.initials}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-[var(--color-ink)]">
+                    <p className="text-sm font-semibold text-(--color-ink)">
                       {t.name}
                     </p>
-                    <p className="text-xs text-[var(--color-stone)]">
+                    <p className="text-xs text-stone">
                       {t.university}
                     </p>
                   </div>
@@ -172,9 +172,9 @@ export default function TestimonialsSection() {
             >
               <Quote
                 size={28}
-                className="text-[var(--color-amber)] opacity-30 mb-4"
+                className="text-amber opacity-30 mb-4"
               />
-              <p className="text-[var(--color-ink)] text-[0.95rem] leading-relaxed mb-6">
+              <p className="text-(--color-ink) text-[0.95rem] leading-relaxed mb-6">
                 &ldquo;{testimonials[current].text}&rdquo;
               </p>
               <div className="flex items-center gap-1 mb-4">
@@ -184,7 +184,7 @@ export default function TestimonialsSection() {
                       key={j}
                       size={14}
                       fill="var(--color-amber)"
-                      className="text-[var(--color-amber)]"
+                      className="text-amber"
                     />
                   ),
                 )}
@@ -197,10 +197,10 @@ export default function TestimonialsSection() {
                   {testimonials[current].initials}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-[var(--color-ink)]">
+                  <p className="text-sm font-semibold text-(--color-ink)">
                     {testimonials[current].name}
                   </p>
-                  <p className="text-xs text-[var(--color-stone)]">
+                  <p className="text-xs text-stone">
                     {testimonials[current].university}
                   </p>
                 </div>
@@ -211,17 +211,17 @@ export default function TestimonialsSection() {
             <button
               onClick={prev}
               disabled={current === 0}
-              className="w-10 h-10 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center disabled:opacity-30"
+              className="w-10 h-10 rounded-full border border-border-strong flex items-center justify-center disabled:opacity-30"
             >
               <ChevronLeft size={16} />
             </button>
-            <span className="text-sm text-[var(--color-stone)]">
+            <span className="text-sm text-stone">
               {current + 1} / {testimonials.length}
             </span>
             <button
               onClick={next}
               disabled={current >= testimonials.length - 1}
-              className="w-10 h-10 rounded-full border border-[var(--color-border-strong)] flex items-center justify-center disabled:opacity-30"
+              className="w-10 h-10 rounded-full border border-border-strong flex items-center justify-center disabled:opacity-30"
             >
               <ChevronRight size={16} />
             </button>

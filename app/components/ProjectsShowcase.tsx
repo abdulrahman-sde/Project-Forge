@@ -28,7 +28,7 @@ export default function ProjectsShowcase() {
       <div className="section-wrapper">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <div className="max-w-[500px]">
+          <div className="max-w-125">
             <motion.span
               initial={{ opacity: 0, y: 15 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -50,7 +50,7 @@ export default function ProjectsShowcase() {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-body max-w-[400px]"
+            className="text-body max-w-100"
           >
             A glimpse of the projects we&apos;ve built. Every project comes with
             complete documentation and presentation-ready materials.
@@ -74,7 +74,7 @@ export default function ProjectsShowcase() {
               <Link href={`/projects/${project.slug}`} className="block">
                 {/* Card image area */}
                 <div
-                  className={`relative aspect-[4/3] rounded-xl bg-gradient-to-br ${project.gradient} mb-5 overflow-hidden`}
+                  className={`relative aspect-4/3 rounded-xl bg-linear-to-br ${project.gradient} mb-5 overflow-hidden`}
                 >
                   {/* Abstract shapes for visual interest */}
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -94,9 +94,9 @@ export default function ProjectsShowcase() {
                   </div>
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-[var(--color-ink)] opacity-0 group-hover:opacity-80 transition-opacity duration-400 flex items-center justify-center">
-                    <div className="text-[var(--color-ivory)] flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-                      <span className="text-sm font-semibold font-[var(--font-display)]">
+                  <div className="absolute inset-0 bg-(--color-ink) opacity-0 group-hover:opacity-80 transition-opacity duration-400 flex items-center justify-center">
+                    <div className="text-(--color-ivory) flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      <span className="text-sm font-semibold">
                         View Case Study
                       </span>
                       <ArrowUpRight size={14} />
@@ -105,10 +105,10 @@ export default function ProjectsShowcase() {
                 </div>
 
                 {/* Content */}
-                <h3 className="font-[var(--font-display)] font-semibold text-lg text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-amber)] transition-colors duration-300">
+                <h3 className="font-semibold text-lg text-(--color-ink) mb-2 group-hover:text-amber transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-sm text-[var(--color-graphite)] leading-relaxed mb-4">
+                <p className="text-sm text-graphite leading-relaxed mb-4">
                   {project.description}
                 </p>
 
@@ -117,7 +117,7 @@ export default function ProjectsShowcase() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-0.5 text-xs font-medium rounded-full border border-[var(--color-border)] text-[var(--color-stone)]"
+                      className="px-2.5 py-0.5 text-xs font-medium rounded-full border border-border text-stone"
                     >
                       {tag}
                     </span>

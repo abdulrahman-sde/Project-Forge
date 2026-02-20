@@ -19,11 +19,41 @@ export default function CTASection() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      setLoading(true);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        form.reset();
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("There was an error submitting the form. Please try again later.");
+      return;
+    } finally {
+      setLoading(false);
+      form.reset();
+    }
+
   };
 
   return (
@@ -34,8 +64,8 @@ export default function CTASection() {
     >
       {/* Background pattern */}
       <div className="absolute inset-0 geo-pattern" />
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[var(--color-amber)] opacity-[0.03] blur-[100px]" />
-      <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-[var(--color-sage)] opacity-[0.04] blur-[80px]" />
+      <div className="absolute top-0 right-0 w-100 h-100 rounded-full bg-amber opacity-[0.03] blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-75 h-75 rounded-full bg-sage opacity-[0.04] blur-[80px]" />
 
       <div className="section-wrapper relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -78,7 +108,7 @@ export default function CTASection() {
                 href="https://wa.me/923001234567"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-5 py-3.5 bg-[#25D366] text-white rounded-xl font-semibold text-sm hover:bg-[#20BD5A] transition-all duration-300 hover:translate-y-[-2px] hover:shadow-lg w-fit"
+                className="inline-flex items-center gap-3 px-5 py-3.5 bg-[#25D366] text-white rounded-xl font-semibold text-sm hover:bg-[#20BD5A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg w-fit"
               >
                 <MessageCircle size={18} />
                 Chat on WhatsApp — Instant Response
@@ -102,8 +132,8 @@ export default function CTASection() {
                 "Custom proposals",
               ].map((point, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-amber)]" />
-                  <span className="text-sm text-[var(--color-graphite)]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-amber" />
+                  <span className="text-sm text-graphite">
                     {point}
                   </span>
                 </div>
@@ -124,49 +154,57 @@ export default function CTASection() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="text-center py-12"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[var(--color-sage-light)] flex items-center justify-center mx-auto mb-4">
-                    <Send size={24} className="text-[var(--color-sage)]" />
+                  <div className="w-16 h-16 rounded-full bg-sage-light flex items-center justify-center mx-auto mb-4">
+                    <Send size={24} className="text-sage" />
                   </div>
-                  <h3 className="font-[var(--font-display)] font-semibold text-xl text-[var(--color-ink)] mb-2">
+                  <h3 className="font-semibold text-xl text-(--color-ink) mb-2">
                     Message Sent!
                   </h3>
-                  <p className="text-sm text-[var(--color-stone)]">
+                  <p className="text-sm text-stone">
                     We&apos;ll get back to you within 2 hours.
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form
+                  className="space-y-5"
+                  action="https://formspree.io/f/xykddnkq"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-[var(--color-ink)] mb-1.5">
+                      <label className="block text-sm font-medium text-(--color-ink) mb-1.5">
                         Your Name
                       </label>
                       <input
                         type="text"
                         placeholder="Ahmed Khan"
                         className="input-field"
+                        name="name"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-[var(--color-ink)] mb-1.5">
+                      <label className="block text-sm font-medium text-(--color-ink) mb-1.5">
                         Email Address
                       </label>
                       <input
                         type="email"
                         placeholder="ahmed@email.com"
                         className="input-field"
+                        name="email"
                         required
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[var(--color-ink)] mb-1.5">
+                    <label className="block text-sm font-medium text-(--color-ink) mb-1.5">
                       Project Type
                     </label>
                     <select
                       className="input-field appearance-none cursor-pointer"
+                      name="project_type"
                       required
                     >
                       <option value="">Select project type...</option>
@@ -179,23 +217,28 @@ export default function CTASection() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-[var(--color-ink)] mb-1.5">
+                    <label className="block text-sm font-medium text-(--color-ink) mb-1.5">
                       Project Details
                     </label>
                     <textarea
                       placeholder="Tell us about your FYP — topic, university, deadline, any specific requirements..."
                       className="input-field"
                       rows={4}
+                      name="details"
                       required
                     />
                   </div>
 
-                  <button type="submit" className="btn-primary w-full py-4">
-                    Submit Your Requirements
-                    <ArrowRight size={16} />
+                  <button type="submit" className="btn-primary w-full py-4" disabled={loading}>
+                    {loading ? "Submitting..." : (
+                      <>
+                        Submit Your Requirements
+                        <ArrowRight size={16} className="ml-2 inline" />
+                      </>
+                    )}
                   </button>
 
-                  <p className="text-center text-xs text-[var(--color-stone)]">
+                  <p className="text-center text-xs text-stone">
                     Your information is 100% confidential and never shared.
                   </p>
                 </form>
