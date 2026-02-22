@@ -9,6 +9,7 @@ export interface ProjectData {
   tagline: string;
   description: string;
   gradient: string;
+  image: string;
   accent: string;
   accentLight: string;
   client: {
@@ -32,6 +33,7 @@ export interface ProjectData {
   gallery: {
     label: string;
     gradient: string;
+    image: string;
     icon: string;
   }[];
   stats: { value: string; label: string }[];
@@ -46,109 +48,113 @@ export interface ProjectData {
 }
 
 export const projects: Record<string, ProjectData> = {
-  meditrack: {
-    slug: "meditrack",
-    title: "MediTrack — Healthcare Management System",
-    category: "Web Application",
+  healthpal: {
+    slug: "healthpal",
+    title: "HealthPal — Healthcare Management System",
+    category: "Mobile Application",
     tagline:
       "A full-stack patient management system with real-time appointment scheduling and medical records.",
     description:
-      "MediTrack is a comprehensive healthcare management solution designed for small to mid-size clinics. It features patient registration, appointment scheduling with conflict detection, medical record management with search, real-time notifications, and role-based access control for administrators, doctors, and staff.",
+      "HealthPal is a comprehensive healthcare management solution designed for small to mid-size clinics. It features patient registration, appointment scheduling with conflict detection, medical record management with search, real-time notifications, and role-based access control for administrators, doctors, and staff.",
     gradient: "from-[#E8F0E9] to-[#D4E6D6]",
+    image: "/assets/projects/healthpal.png",
     accent: "var(--color-sage)",
     accentLight: "var(--color-sage-light)",
     client: {
-      university: "COMSATS University Islamabad",
+      university: "The University of Faisalabad",
       department: "Computer Science",
       semester: "8th Semester — Final Year Project",
     },
-    duration: "4 Weeks",
+    duration: "3 Weeks",
     grade: "A+",
     tags: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "Socket.io",
-      "AWS",
-      "JWT",
-      "Tailwind CSS",
+      "React Native",
+      "Expo",
+      "Supabase",
+      "Redux Toolkit",
+      "Backend as service",
     ],
     challenge: {
       title: "The Challenge",
       description:
         "The student needed a production-quality healthcare system that demonstrated full-stack proficiency while meeting strict university requirements for documentation and architecture.",
       points: [
-        "Complex role-based access control for 3 user types (Admin, Doctor, Staff)",
+        "Complex role-based access control for 3 user types (Admin, Doctor, Patient)",
         "Real-time appointment slot management with conflict detection",
         "HIPAA-inspired data security patterns for medical records",
         "Full SRS documentation with UML, ER diagrams, and test cases",
-        "Tight 4-week deadline with mid-project supervisor review",
+        "Tight 3-week deadline with mid-project supervisor review",
       ],
     },
     solution: {
       title: "Our Solution",
       description:
-        "We designed and built a modular, production-grade architecture that showcased modern web development best practices while being easy for the student to present and defend.",
+        "We designed and built a modular, production-grade architecture that showcased modern application development best practices while being easy for the student to present and defend.",
       highlights: [
         {
-          title: "Modular MERN Architecture",
+          title: "Modular Architecture",
           description:
-            "Clean, layered backend with controllers, services, and data access layers. React frontend with reusable component library and centralized state management.",
+            "Clean, layered backend with controllers, services, and data access layers. React Native frontend with reusable component library and centralized state management.",
         },
         {
           title: "Real-Time Notifications",
           description:
-            "WebSocket-based notification system using Socket.io for instant appointment updates, status changes, and administrative alerts.",
+            "Real-time notification system using Expo Push Notifications for instant appointment updates, status changes, and administrative alerts.",
         },
         {
           title: "Secure Authentication Flow",
           description:
-            "JWT-based auth with refresh tokens, role middleware, password hashing with bcrypt, and rate limiting for brute-force protection.",
+            "Supabase for serverless auth, password hashing, and rate limiting for brute-force protection.",
         },
         {
-          title: "Cloud Deployment",
+          title: "Apk Deployment & Documentation",
           description:
-            "Deployed on AWS EC2 with MongoDB Atlas, S3 for medical document storage, and CloudFront CDN for optimal frontend performance.",
+            "Deployed APK with Expo, comprehensive SRS document with 47 pages, UML diagrams, ER diagrams, and detailed test cases for supervisor review.",
         },
       ],
     },
     gallery: [
       {
-        label: "Dashboard Overview",
+        label: "Home Screen",
         gradient: "from-[#E8F0E9] to-[#C8DEC9]",
+        image:"/assets/projects/healthpal1.png",
         icon: "monitor",
       },
       {
-        label: "Appointment System",
+        label: "Doctor's Overview",
         gradient: "from-[#F5E6C8] to-[#EDD9B0]",
+        image:"/assets/projects/healthpal2.png",
         icon: "calendar",
       },
       {
-        label: "Patient Records",
+        label: "Doctor Details and Notifications",
         gradient: "from-[#E8F0E9] to-[#D4E6D6]",
+        image:"/assets/projects/healthpal3.png",
         icon: "database",
       },
       {
-        label: "Admin Panel",
+        label: "Doctor's Profile",
         gradient: "from-[#F5E8E3] to-[#EBDAD3]",
+        image:"/assets/projects/healthpal4.png",
         icon: "layers",
       },
       {
-        label: "Mobile Responsive",
+        label: "Appointment System",
         gradient: "from-[#E8F0E9] to-[#C8DEC9]",
+        image:"/assets/projects/healthpal5.png",
         icon: "smartphone",
       },
     ],
     stats: [
       { value: "A+", label: "Final Grade" },
-      { value: "47", label: "Pages of Docs" },
-      { value: "4 Weeks", label: "Delivered In" },
+      { value: "57", label: "Pages of Docs" },
+      { value: "3 Weeks", label: "Delivered In" },
       { value: "12", label: "API Endpoints" },
+      { value: "3", label: "User Roles" },
     ],
     deliverables: [
       "Complete Source Code (Frontend + Backend)",
-      "SRS Document (47 pages)",
+      "SRS Document (57 pages)",
       "Database ER Diagrams",
       "UML Diagrams (Use Case, Sequence, Class)",
       "Test Cases & Testing Report",
@@ -157,175 +163,180 @@ export const projects: Record<string, ProjectData> = {
       "Viva Preparation Notes",
     ],
     testimonial: {
-      text: "They built my entire e-commerce FYP in 3 weeks — React frontend, Node backend, and full documentation. My supervisor was genuinely impressed with the SRS quality. Got an A without a single revision.",
+      text: "They delivered the entire project in React Native, Supabase backend, and full documentation. My supervisor was genuinely impressed with the SRS quality. Got an A without a single revision.",
       name: "Ahmed Khurram",
-      university: "COMSATS University",
+      university: "The University of Faisalabad",
       initials: "AK",
       color: "var(--color-amber-light)",
     },
   },
-  sentimentscope: {
-    slug: "sentimentscope",
-    title: "SentimentScope — Social Media Analyzer",
-    category: "AI / ML Project",
+  chatpdf: {
+    slug: "chatpdf",
+    title: "ChatPdf — AI Chatbot for PDF Question Answering",
+    category: "AI & NLP Project",
     tagline:
-      "Real-time sentiment analysis tool that processes tweets and reviews using advanced NLP.",
+      "AI-powered chatbot that answers questions from PDF documents using llms and a Next.js dashboard.",
     description:
-      "SentimentScope is an AI-powered social media analytics platform that processes tweets, product reviews, and user feedback in real-time. It uses a fine-tuned BERT model for sentiment classification, provides interactive dashboard visualizations, trend detection, and exportable PDF reports.",
+      "ChatPdf is an AI-driven chatbot application that allows users to upload PDF documents and ask questions about their content. The system uses llms for natural language understanding, a node backend for processing, and a Nextjs dashboard for interactive data visualization of insights extracted from the PDFs.",
     gradient: "from-[#F5E6C8] to-[#EDD9B0]",
+    image: "/assets/projects/chatpdf.png",
     accent: "var(--color-amber)",
     accentLight: "var(--color-amber-light)",
     client: {
-      university: "FAST-NUCES Lahore",
-      department: "Artificial Intelligence",
+      university: "GC University Faisalabad",
+      department: "Computer Science",
       semester: "8th Semester — Final Year Project",
     },
-    duration: "5 Weeks",
+    duration: "4 Weeks",
     grade: "A",
     tags: [
-      "Python",
-      "TensorFlow",
-      "BERT",
-      "Flask",
-      "React",
+      "Next.js",
+      "Typescript",
+      "Vercel SDK",
       "PostgreSQL",
-      "Redis",
-      "Docker",
+      "LLMs",
+      "Clerk",
+      "Tailwind CSS",
     ],
     challenge: {
       title: "The Challenge",
       description:
-        "The student faced an approaching deadline with a complex AI project requiring both robust ML pipelines and an intuitive user-facing dashboard to impress the evaluation panel.",
+        "The student needed to build a technically impressive AI project that also had a polished frontend for their viva presentation. The project had to demonstrate both ML expertise and modern web development skills.",
       points: [
-        "Custom NLP model training on 50K+ labeled tweets dataset",
-        "Real-time data streaming from Twitter API with rate limit handling",
-        "Interactive data visualization dashboard with multiple chart types",
-        "Exportable PDF reports with automated insights generation",
+        "Using prebuild llms for question-answering tasks on custom PDF",
+        "Building a  dashboard to visualize insights extracted from PDFs",
+        "Implementing secure user authentication and file handling for uploads",
+        "Integrating models for accurate information retrieval from documents",
         "Docker-based deployment for reproducible environments",
       ],
     },
     solution: {
       title: "Our Solution",
       description:
-        "We built a complete end-to-end ML pipeline with a modern web dashboard, delivering both technical depth for the AI component and visual polish for presentations.",
+        "We developed a full-stack solution that combined llm model for PDF question-answering with a sleek Next.js dashboard for visualizing insights, all while ensuring the student had comprehensive documentation to confidently defend their project.",
       highlights: [
         {
-          title: "Fine-Tuned BERT Model",
+          title: "Memory-Enhanced LLM Architecture",
           description:
-            "Transfer learning approach using BERT-base with custom classification head, achieving 91.3% accuracy on the test set. Trained on a curated 50K tweet dataset.",
+            "fine-tuned LLM for PDF question-answering, with a custom context memory layer to handle multi-turn conversations and maintain state across interactions.",
         },
         {
-          title: "Real-Time Processing Pipeline",
+          title: "Secure PDF Handling & Authentication",
           description:
-            "Redis-backed message queue for streaming tweets, with Flask API serving predictions. Background workers handle batch processing for trend analysis.",
+            "Secure handling of PDF uploads with user authentication and file validation. Implemented Clerk for secure authentication and session management.",
         },
         {
-          title: "Interactive Analytics Dashboard",
+          title: "Interactive Dashboard",
           description:
-            "React dashboard with Recharts visualizations: sentiment distribution pie charts, time-series trend lines, word clouds, and filterable data tables.",
+            "Next.js dashboard with dynamic data visualization of insights extracted from PDFs, and summary sections.",
         },
         {
-          title: "Automated Report Generation",
+          title: "Comprehensive Documentation & Deployment",
           description:
-            "PDF report generator using ReportLab with AI-generated insights, charts, statistical summaries, and exportable datasets in CSV format.",
+            "Complete SRS documentation with UML diagrams, API docs, and a Docker-based deployment setup for easy local testing and demonstration during viva.",
         },
       ],
     },
     gallery: [
       {
-        label: "Analytics Dashboard",
+        label: "Home Screen Hero Section",
         gradient: "from-[#F5E6C8] to-[#E8D4A8]",
+        image:"/assets/projects/chatpdf.png",
         icon: "barchart",
       },
       {
-        label: "Sentiment Trends",
+        label: "PDF Uploads",
         gradient: "from-[#E8F0E9] to-[#D4E6D6]",
+        image:"/assets/projects/chatpdf2.png",
         icon: "monitor",
       },
       {
-        label: "Word Cloud View",
+        label: "Insights Dashboard",
         gradient: "from-[#F5E6C8] to-[#EDD9B0]",
+        image:"/assets/projects/chatpdf3.png",
         icon: "globe",
       },
       {
-        label: "Report Generator",
+        label: "Chat Interface",
         gradient: "from-[#F5E8E3] to-[#EBDAD3]",
+        image:"/assets/projects/chatpdf4.png",
         icon: "filetext",
       },
       {
-        label: "Model Metrics",
+        label: "Profile & Settings",
         gradient: "from-[#F5E6C8] to-[#E8D4A8]",
+        image:"/assets/projects/chatpdf5.png",
         icon: "cpu",
       },
     ],
     stats: [
       { value: "A", label: "Final Grade" },
-      { value: "91.3%", label: "Model Accuracy" },
-      { value: "5 Weeks", label: "Delivered In" },
-      { value: "50K+", label: "Training Samples" },
+      { value: "60", label: "Pages Docs" },
+      { value: "4 Weeks", label: "Delivered In" },
+      { value: "8", label: "API Endpoints" },
     ],
     deliverables: [
-      "Complete Source Code (ML + Backend + Frontend)",
-      "Trained ML Model (.h5 weights)",
-      "SRS Document (52 pages)",
-      "Model Training Documentation",
-      "API Documentation",
+      "Complete Source Code (Backend + Frontend)",
+      "SRS Document (60 pages)",
+      "Database ER Diagrams",
+      "UML Diagrams (Use Case, Sequence, Class)",
+      "Test Cases & Testing Report",
       "Docker Compose Setup",
       "PowerPoint Presentation (35 slides)",
-      "Research Paper Draft",
     ],
     testimonial: {
-      text: "I was desperate with my AI project deadline approaching. ProjectForge delivered a complete sentiment analysis system with TensorFlow, plus a 60-page report and presentation deck. Lifesaver!",
+      text: "They delivered a fully working AI chatbot with a Next.js dashboard. The SRS documentation was so detailed that my supervisor had no questions during the viva. I got an A without any revisions.",
       name: "Fatima Noor",
-      university: "FAST-NUCES",
+      university: "GC University Faisalabad",
       initials: "FN",
       color: "var(--color-sage-light)",
     },
   },
-  educonnect: {
-    slug: "educonnect",
-    title: "EduConnect — Learning Platform",
+  synapse: {
+    slug: "synapse",
+    title: "SYNAPSE — AI-Powered Job Matching Platform",
     category: "Web Application",
     tagline:
-      "Interactive e-learning platform with video courses, quizzes, and certificate generation.",
+      "A full-featured platform that parses resumes, matches skills, and generates hiring recommendations in seconds.",
     description:
       "EduConnect is a full-featured learning management system enabling instructors to publish courses with video content, create quizzes, track student progress, and issue verified certificates. It includes Stripe payment integration, an admin analytics dashboard, and a fully responsive design.",
     gradient: "from-[#F5E8E3] to-[#EBDAD3]",
+    image: "/assets/projects/synapse.png",
     accent: "var(--color-blush)",
     accentLight: "var(--color-blush-light)",
     client: {
-      university: "NUST Islamabad",
+      university: "Riphah International University",
       department: "Software Engineering",
-      semester: "7th Semester — Final Year Project",
+      semester: "8th Semester — Final Year Project",
     },
-    duration: "6 Weeks",
+    duration: "4 Weeks",
     grade: "A+",
     tags: [
       "Next.js",
+      "FastAPI",
+      "Langgraph",
       "PostgreSQL",
-      "Prisma",
-      "Stripe",
+      "OpenAI API",
       "Tailwind CSS",
-      "AWS S3",
       "NextAuth",
       "Zustand",
     ],
     challenge: {
       title: "The Challenge",
       description:
-        "Balancing an internship, the student needed a feature-rich LMS that demonstrated advanced web development skills and could serve as a portfolio piece beyond academic requirements.",
+        "The student needed to refined a technically impressive LMS that also had a polished frontend for their viva presentation. The project had to demonstrate both backend and frontend expertise while meeting strict university documentation requirements.",
       points: [
-        "Multi-role system: Admin, Instructor, and Student with different dashboards",
-        "Secure payment processing with Stripe for course purchases",
-        "Video streaming with progress tracking and resume functionality",
-        "Automated certificate generation with unique verification codes",
-        "Comprehensive admin analytics panel with enrollment and revenue metrics",
+        "Resume parsing and skill extraction using llms for accurate job matching",
+        "Analyzing job descriptions to generate candidate fit scores and hiring recommendations",
+        "Building a sleek Next.js dashboard for recruiters to view candidate profiles and insights",
+        "Implementing secure authentication for recruiters analyzing sensitive candidate data",
+        "Comprehensive SRS documentation with UML diagrams, ER diagrams, and test cases for supervisor review",
       ],
     },
     solution: {
       title: "Our Solution",
       description:
-        "We delivered a production-ready LMS using Next.js with server-side rendering, Prisma ORM for type-safe database access, and a clean component architecture that the student could easily explain during their viva.",
+        "We delivered a production-ready AI-powered job matching platform using Next.js with server-side rendering, FastAPI backend, and Langgraph for LLM orchestration. The clean component architecture and comprehensive documentation made it easy for the student to explain during their viva.",
       highlights: [
         {
           title: "Next.js App Router Architecture",
@@ -333,70 +344,73 @@ export const projects: Record<string, ProjectData> = {
             "Leveraged the App Router with server components for optimal performance, parallel routes for dashboards, and middleware for authentication & authorization.",
         },
         {
-          title: "Stripe Integration",
+          title: "Resume Parsing & Skill Extraction",
           description:
-            "Complete checkout flow with webhook-based enrollment confirmation, refund handling, and revenue tracking. Instructor payouts and commission management.",
+            "Using OpenAI API to parse resumes and extract relevant skills for accurate job matching.",
         },
         {
-          title: "Rich Course Builder",
+          title: "Job Description Analysis & Fit Scoring",
           description:
-            "Instructor dashboard with drag-and-drop course builder, Markdown editor for content, video upload to S3 with adaptive streaming, and quiz creator.",
+            "Analyzing job descriptions to generate candidate fit scores and hiring recommendations using LLMs.",
         },
         {
-          title: "Certificate Engine",
+          title: "AI Assistant for Recruiters",
           description:
-            "Automated PDF certificate generation upon course completion using custom templates, with QR code verification and shareable links.",
+            "Integrated an AI assistant within the dashboard to provide real-time insights and chat feature on candidate profiles.",
         },
       ],
     },
     gallery: [
       {
-        label: "Course Catalog",
+        label: "Dashboard Overview",
         gradient: "from-[#F5E8E3] to-[#E8D4CC]",
+        image:"/assets/projects/synapse1.png",
         icon: "bookopen",
       },
       {
-        label: "Video Player",
+        label: "Job Creating",
         gradient: "from-[#F5E6C8] to-[#EDD9B0]",
+        image:"/assets/projects/synapse2.png",
         icon: "monitor",
       },
       {
-        label: "Quiz Interface",
+        label: "Profile Analysis",
         gradient: "from-[#E8F0E9] to-[#D4E6D6]",
+        image:"/assets/projects/synapse3.png",
         icon: "code",
       },
       {
-        label: "Admin Analytics",
+        label: "Profile Analytics",
         gradient: "from-[#F5E8E3] to-[#EBDAD3]",
+        image:"/assets/projects/synapse4.png",
         icon: "barchart",
       },
       {
-        label: "Certificate View",
+        label: "AI Assistant Insights",
         gradient: "from-[#F5E6C8] to-[#E8D4A8]",
+        image:"/assets/projects/synapse5.png",
         icon: "award",
       },
     ],
     stats: [
       { value: "A+", label: "Final Grade" },
       { value: "63", label: "Pages of Docs" },
-      { value: "6 Weeks", label: "Delivered In" },
+      { value: "4 Weeks", label: "Delivered In" },
       { value: "18", label: "API Routes" },
     ],
     deliverables: [
-      "Complete Source Code (Full-Stack Next.js)",
+      "Complete Source Code (Full-Stack Next.js + FastAPI)",
       "SRS Document (63 pages)",
       "Database Schema & ER Diagrams",
       "UML Diagrams (Use Case, Activity, Class)",
-      "API Documentation (Swagger)",
-      "Stripe Integration Guide",
       "PowerPoint Presentation (32 slides)",
       "Deployment & Hosting Guide",
     ],
     testimonial: {
-      text: "I was juggling an internship and couldn't handle my FYP. They took my requirements and delivered a fully working Learning Management System. The viva prep sessions gave me all the confidence I needed.",
-      name: "Sara Malik",
-      university: "LUMS",
-      initials: "SM",
+      text: "They delivered a fully working AI job matching platform with a sleek Next.js dashboard. The SRS documentation was so detailed that my supervisor had no questions during the viva. I got an A+ without any revisions.",
+      name: "Moiz Khan",
+      university: "Riphah International University",
+      initials: "MK",
       color: "var(--color-amber-light)",
     },
   },
