@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { projects as projectsData, PROJECT_SLUGS } from "../lib/constants";
+import Image from "next/image";
 
 const projects = PROJECT_SLUGS.map((slug) => {
   const p = projectsData[slug];
@@ -15,6 +16,7 @@ const projects = PROJECT_SLUGS.map((slug) => {
     description: p.tagline,
     tags: p.tags.slice(0, 4),
     gradient: p.gradient,
+    image: p.image,
     accent: p.accent,
   };
 });
@@ -76,8 +78,17 @@ export default function ProjectsShowcase() {
                 <div
                   className={`relative aspect-4/3 rounded-xl bg-linear-to-br ${project.gradient} mb-5 overflow-hidden`}
                 >
+                  <div>
+                    <Image 
+                      src={project.image}
+                      alt={project.title}
+                      width={400}
+                      height={300}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   {/* Abstract shapes for visual interest */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  {/* <div className="absolute inset-0 flex items-center justify-center">
                     <div
                       className="w-24 h-24 rounded-2xl border-2 opacity-30 rotate-12 group-hover:rotate-45 transition-transform duration-700"
                       style={{ borderColor: project.accent }}
@@ -86,7 +97,7 @@ export default function ProjectsShowcase() {
                       className="absolute w-16 h-16 rounded-full border-2 opacity-20 -rotate-12 group-hover:rotate-12 transition-transform duration-700 translate-x-8 translate-y-4"
                       style={{ borderColor: project.accent }}
                     />
-                  </div>
+                  </div> */}
 
                   {/* Category badge */}
                   <div className="absolute top-4 left-4">
