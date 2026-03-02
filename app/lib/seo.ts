@@ -4,7 +4,7 @@
 
 /** Base site URL — update when domain is finalized */
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://getgrade.dev";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://getgrade.tech";
 
 export const SITE_NAME = "getgrade";
 

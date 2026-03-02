@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, DM_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import {
   SITE_URL,
   SITE_NAME,
   SITE_DESCRIPTION,
   SITE_TAGLINE,
-  DEFAULT_OG_IMAGE,
   TWITTER_HANDLE,
   PRIMARY_KEYWORDS,
   canonicalUrl,
@@ -85,11 +85,10 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: DEFAULT_OG_IMAGE,
+        url: "/og-image.jpg", // metadataBase handles full URL
         width: 1200,
         height: 630,
-        alt: `${SITE_NAME} — ${SITE_TAGLINE}`,
-        type: "image/png",
+        alt: `${SITE_NAME} preview image`,
       },
     ],
   },
@@ -101,7 +100,7 @@ export const metadata: Metadata = {
     creator: TWITTER_HANDLE,
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
-    images: [DEFAULT_OG_IMAGE],
+    images: ["/og-image.jpg"],
   },
 
   /* ── Icons & Manifest ───────────────────── */
@@ -141,6 +140,7 @@ export default function RootLayout({
         <div className="grain-overlay" aria-hidden="true" />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

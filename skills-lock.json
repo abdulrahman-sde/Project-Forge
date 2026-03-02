@@ -6,6 +6,11 @@
       "sourceType": "github",
       "computedHash": "c591208a052cc9f7deb77be1183e4627daf54dbf575ea2653f519f29fe3bd4c8"
     },
+    "og-image-design": {
+      "source": "inference-sh-9/skills",
+      "sourceType": "github",
+      "computedHash": "539ff549cd9a33e90144effbd37d2691dd0ba44018cf6df40a17ade33c9857cd"
+    },
     "seo-audit": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
