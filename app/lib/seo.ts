@@ -6,7 +6,7 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL || "https://getgrade.tech";
 
-export const SITE_NAME = "getgrade";
+export const SITE_NAME = "GetGrade";
 
 export const SITE_DESCRIPTION =
   "We build and document complete Final Year Projects for university students. Expert web, AI/ML & mobile development with full SRS, reports, and presentations — delivered on time, every time.";

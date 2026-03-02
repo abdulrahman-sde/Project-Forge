@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { projects, PROJECT_SLUGS, getProjectBySlug } from "../../lib/constants";
+import { PROJECT_SLUGS, getProjectBySlug } from "../../lib/constants";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CaseStudyContent from "./CaseStudyContent";
@@ -30,7 +30,7 @@ export async function generateMetadata({
     return { title: "Project Not Found" };
   }
 
-  const pageUrl = `https://getgrade.dev/projects/${slug}`;
+  const pageUrl = `https://getgrade.tech/projects/${slug}`;
 
   return {
     title: `${project.title} | Case Study`,
@@ -46,7 +46,7 @@ export async function generateMetadata({
       siteName: "getgrade",
       images: [
         {
-          url: `https://getgrade.dev${project.image}`,
+          url: `https://getgrade.tech${project.image}`,
           width: 1200,
           height: 630,
           alt: project.title,
@@ -57,7 +57,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: project.title,
       description: project.tagline,
-      images: [`https://getgrade.dev${project.image}`],
+      images: [`https://getgrade.tech${project.image}`],
     },
   };
 }
