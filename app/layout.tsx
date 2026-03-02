@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [
       {
-        url: "/og-image.jpg", // metadataBase handles full URL
+        url: "/og_image.png", // metadataBase handles full URL
         width: 1200,
         height: 630,
         alt: `${SITE_NAME} preview image`,
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     creator: TWITTER_HANDLE,
     title: `${SITE_NAME} — ${SITE_TAGLINE}`,
     description: SITE_DESCRIPTION,
-    images: ["/og-image.jpg"],
+    images: ["/og_image.png"],
   },
 
   /* ── Icons & Manifest ───────────────────── */

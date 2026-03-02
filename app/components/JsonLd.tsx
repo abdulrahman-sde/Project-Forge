@@ -38,7 +38,7 @@ export function OrganizationJsonLd() {
       width: 512,
       height: 512,
     },
-    image: `${SITE_URL}/og-image.png`,
+    image: `${SITE_URL}/og_image.png`,
     description: SITE_DESCRIPTION,
     sameAs: Object.values(SOCIAL_LINKS),
     contactPoint: {

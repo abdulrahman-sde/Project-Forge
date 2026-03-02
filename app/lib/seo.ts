@@ -14,7 +14,7 @@ export const SITE_DESCRIPTION =
 export const SITE_TAGLINE = "Complete FYP Development & Documentation Agency";
 
 /** Default OG image path (relative to public/) */
-export const DEFAULT_OG_IMAGE = "/og-image.png";
+export const DEFAULT_OG_IMAGE = "/og_image.png";
 
 /** Social links */
 export const SOCIAL_LINKS = {
