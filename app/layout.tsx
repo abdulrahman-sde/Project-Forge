@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Sora, DM_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const sora = Sora({
@@ -49,6 +50,7 @@ export default function RootLayout({
       <body>
         <div className="grain-overlay" aria-hidden="true" />
         {children}
+        <Analytics />
       </body>
     </html>
   );

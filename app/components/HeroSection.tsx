@@ -1,6 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import { ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
 
 const trustBadges = [
@@ -62,9 +60,7 @@ export default function HeroSection() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 className={`inline-block mr-3 ${
-                  word === "FYP" || word === "Experts."
-                    ? "text-amber"
-                    : ""
+                  word === "FYP" || word === "Experts." ? "text-amber" : ""
                 }`}
               >
                 {word}
@@ -116,10 +112,7 @@ export default function HeroSection() {
                 className="flex items-center gap-2.5"
               >
                 <div className="w-8 h-8 rounded-full bg-amber-light flex items-center justify-center">
-                  <badge.icon
-                    size={15}
-                    className="text-amber-dark"
-                  />
+                  <badge.icon size={15} className="text-amber-dark" />
                 </div>
                 <span className="text-sm font-medium text-graphite">
                   {badge.text}
@@ -154,12 +147,8 @@ export default function HeroSection() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs text-stone">
-                  Progress
-                </span>
-                <span className="text-xs font-semibold text-sage">
-                  100%
-                </span>
+                <span className="text-xs text-stone">Progress</span>
+                <span className="text-xs font-semibold text-sage">100%</span>
               </div>
               <div className="h-1.5 bg-silk rounded-full overflow-hidden">
                 <motion.div

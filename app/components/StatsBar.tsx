@@ -61,7 +61,7 @@ export default function StatsBar() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="bg-(--color-ink) rounded-2xl py-8 md:py-10 px-6 md:px-12"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 md:gap-0">
             {stats.map((stat, i) => (
               <div
                 key={i}
@@ -71,7 +71,7 @@ export default function StatsBar() {
                     : ""
                 }`}
               >
-                <div className="text-3xl md:text-4xl font-bold text-(--color-ivory) tracking-tight mb-1">
+                <div className="text-3xl md:text-4xl  font-bold text-(--color-ivory) tracking-tight mb-1">
                   <AnimatedCounter
                     target={stat.value}
                     suffix={stat.suffix}

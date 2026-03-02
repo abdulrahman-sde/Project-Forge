@@ -105,11 +105,7 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section
-      id="faq"
-      className="section-padding bg-silk"
-      ref={ref}
-    >
+    <section id="faq" className="section-padding bg-silk" ref={ref}>
       <div className="section-wrapper">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16">
           {/* Left column — heading */}
