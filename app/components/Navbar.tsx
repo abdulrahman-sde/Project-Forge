@@ -3,19 +3,21 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
-
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Projects", href: "#projects" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Services", href: "/#services" },
+  { label: "Process", href: "/#process" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Pricing", href: "/#pricing" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const pathname = usePathname();
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -33,12 +35,39 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  if (pathname.startsWith("/projects/")) {
+    return (
+      <div className="section-wrapper  flex items-center">
+        <Link
+          href={"/"}
+          className="inline-flex items-center gap-2 px-6 py-3 mt-10 text-sm font-semibold text-(--color-ink) bg-(--color-ivory) border border-border rounded-lg shadow-md hover:bg-amber hover:text-white transition-all duration-300"
+          aria-label="Go back"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-4 h-4"
+          >
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+          Back to Previous Page
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        aria-label="Main navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-[rgba(250,250,247,0.85)] backdrop-blur-xl shadow-[0_1px_0_var(--color-border)]"
@@ -48,41 +77,67 @@ export default function Navbar() {
         <div className="section-wrapper">
           <div className="flex items-center justify-between h-18 md:h-20">
             {/* Logo */}
-            <a
-              href="#"
+            <Link
+              href="/"
               className="flex items-center gap-2.5 group"
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={(e) => {
+                e.preventDefault();
+                if (pathname !== "/") {
+                  window.location.href = "/#hero";
+                } else {
+                  document
+                    .getElementById("hero")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              aria-label="getgrade — go to landing hero"
             >
-              <div className="w-9 h-9 rounded-lg bg-(--color-ink) flex items-center justify-center group-hover:bg-amber transition-colors duration-300">
-                <span className="text-(--color-ivory) font-bold text-sm">
-                  PF
-                </span>
-              </div>
+              <Image
+                src={"/logos/getgrade-icon.svg"}
+                width={35}
+                height={35}
+                alt="Logo"
+              />
               <span className="font-semibold text-lg tracking-tight text-(--color-ink)">
-                ProjectForge
+                GetGrade
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Links */}
-            <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="relative text-[0.9rem] font-medium text-graphite hover:text-(--color-ink) transition-colors duration-300 group"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-amber transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
-            </div>
+            {pathname === "/" && (
+              <div className="hidden md:flex items-center gap-8">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="relative text-[0.9rem] font-medium text-graphite hover:text-(--color-ink) transition-colors duration-300 group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-amber transition-all duration-300 group-hover:w-full" />
+                  </a>
+                ))}
+              </div>
+            )}
 
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-4">
-              <a href="#contact" className="btn-primary text-sm py-2.5 px-5">
+              <Link
+                href="/"
+                className="btn-primary text-sm py-2.5 px-5"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (pathname !== "/") {
+                    window.location.href = "/#contact";
+                  } else {
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
                 Get Started
                 <ArrowRight size={15} />
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Toggle */}
@@ -110,6 +165,9 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-[rgba(27,27,24,0.3)] backdrop-blur-sm md:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
             onClick={() => setMobileOpen(false)}
           >
             <motion.div

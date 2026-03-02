@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img">
+  <title>getgrade</title>
+  <rect fill="#1B1B18" x="0" y="0" width="512" height="512" rx="128" ry="128"/>
+  <!-- Upward arrow -->
+  <path fill="#D4A853" d="M256,128 L362,256 L298,256 L298,384 L214,384 L214,256 L150,256 Z"/>
+  <!-- A+ symbol -->
+  <line x1="384" y1="128" x2="384" y2="213" stroke="#FAFAF7" stroke-width="21" stroke-linecap="round"/>
+  <line x1="341" y1="170" x2="427" y2="170" stroke="#FAFAF7" stroke-width="21" stroke-linecap="round"/>
+</svg>

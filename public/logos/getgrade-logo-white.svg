@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" role="img" aria-labelledby="white-title">
+  <title id="white-title">getgrade Logo (Light)</title>
+  <defs>
+    <style>
+      .wordmark { fill: #FAFAF7; font-family: 'Sora', 'Inter', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.5px; }
+    </style>
+  </defs>
+
+  <!-- Icon with ivory background -->
+  <g id="icon">
+    <rect fill="#FAFAF7" x="0" y="0" width="48" height="48" rx="12" ry="12"/>
+    <path fill="#1B1B18" d="M24,12 L34,24 L28,24 L28,36 L20,36 L20,24 L14,24 Z"/>
+    <line x1="36" y1="12" x2="36" y2="20" stroke="#D4A853" stroke-width="2" stroke-linecap="round"/>
+    <line x1="32" y1="16" x2="40" y2="16" stroke="#D4A853" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- White wordmark -->
+  <text x="60" y="36" class="wordmark">getgrade</text>
+</svg>

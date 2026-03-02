@@ -79,7 +79,7 @@ function PlaceholderImage({
         height={300}
         className="object-cover"
       />
-      
+
       {/* Decorative shapes */}
       {/* <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-32 h-32 rounded-3xl border-2 border-current opacity-10 rotate-12" />
@@ -134,7 +134,7 @@ export default function CaseStudyContent({
   const quoteInView = useInView(quoteRef, { once: true, margin: "-80px" });
 
   return (
-    <main className="pt-24 md:pt-28">
+    <main className="pt-24 md:pt-14">
       {/* ── Breadcrumb ── */}
       <div className="section-wrapper mb-8" ref={heroRef}>
         <motion.nav
@@ -154,10 +154,10 @@ export default function CaseStudyContent({
       </div>
 
       {/* ── Hero Section ── */}
-      <section className="section-wrapper mb-16">
+      <section className="section-wrapper mb-16 mt-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Left: Title & info */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 mt-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={heroInView ? { opacity: 1, y: 0 } : {}}
@@ -419,10 +419,7 @@ export default function CaseStudyContent({
       </section>
 
       {/* ── Gallery Section ── */}
-      <section
-        className="section-padding bg-silk"
-        ref={galleryRef}
-      >
+      <section className="section-padding bg-silk" ref={galleryRef}>
         <div className="section-wrapper">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -518,10 +515,7 @@ export default function CaseStudyContent({
       </section>
 
       {/* ── Deliverables ── */}
-      <section
-        className="section-padding bg-silk"
-        ref={deliverablesRef}
-      >
+      <section className="section-padding bg-silk" ref={deliverablesRef}>
         <div className="section-wrapper">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>

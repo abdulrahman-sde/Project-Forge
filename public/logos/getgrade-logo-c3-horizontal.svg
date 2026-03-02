@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" role="img" aria-labelledby="c3-title">
+  <title id="c3-title">getgrade Logo</title>
+  <defs>
+    <style>
+      .wordmark { fill: #1B1B18; font-family: 'Sora', 'Inter', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.5px; }
+    </style>
+  </defs>
+
+  <!-- Icon: Stylized "GG" monogram in rounded square -->
+  <g id="icon">
+    <rect fill="#1B1B18" x="0" y="0" width="48" height="48" rx="11" ry="11"/>
+
+    <!-- First G - larger, with an arrow tip pointing up -->
+    <path d="M12,32 A14,14 0 1,1 26,32 L26,26 L20,26 L20,32 A8,8 0 1,0 12,32 Z" fill="#D4A853"/>
+
+    <!-- Second G - smaller, offset to create depth -->
+    <path d="M24,34 A10,10 0 1,1 34,34 L34,30 L30,30 L30,34 A6,6 0 1,0 24,34 Z" fill="#FAFAF7" opacity="0.85"/>
+
+    <!-- Graduation cap accent at top -->
+    <polygon points="24,6 30,9 24,12 18,9" fill="#D4A853"/>
+    <line x1="24" y1="12" x2="24" y2="16" stroke="#D4A853" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="60" y="36" class="wordmark">getgrade</text>
+</svg>

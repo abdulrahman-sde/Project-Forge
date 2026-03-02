@@ -17,7 +17,7 @@ const testimonials = [
     name: "Fatima Noor",
     university: "TUF University",
     rating: 5,
-    text: "I was desperate with my AI project deadline approaching. ProjectForge delivered a complete sentiment analysis system with TensorFlow, plus a 60-page report and presentation deck. Lifesaver!",
+    text: "I was desperate with my AI project deadline approaching. getgrade delivered a complete sentiment analysis system with TensorFlow, plus a 60-page report and presentation deck. Lifesaver!",
     initials: "FN",
     color: "var(--color-sage-light)",
   },
@@ -90,6 +90,7 @@ export default function TestimonialsSection() {
             <button
               onClick={prev}
               disabled={current === 0}
+              aria-label="Previous testimonial"
               className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center hover:bg-(--color-ink) hover:text-(--color-ivory) hover:border-(--color-ink) transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-(--color-ink) disabled:hover:border-border-strong"
             >
               <ChevronLeft size={18} />
@@ -97,6 +98,7 @@ export default function TestimonialsSection() {
             <button
               onClick={next}
               disabled={current >= maxIndex}
+              aria-label="Next testimonial"
               className="w-11 h-11 rounded-full border border-border-strong flex items-center justify-center hover:bg-(--color-ink) hover:text-(--color-ivory) hover:border-(--color-ink) transition-all duration-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-(--color-ink) disabled:hover:border-border-strong"
             >
               <ChevronRight size={18} />
@@ -121,10 +123,7 @@ export default function TestimonialsSection() {
                   flexShrink: 0,
                 }}
               >
-                <Quote
-                  size={28}
-                  className="text-amber opacity-30 mb-4"
-                />
+                <Quote size={28} className="text-amber opacity-30 mb-4" />
                 <p className="text-(--color-ink) text-[0.95rem] leading-relaxed mb-6">
                   &ldquo;{t.text}&rdquo;
                 </p>
@@ -149,9 +148,7 @@ export default function TestimonialsSection() {
                     <p className="text-sm font-semibold text-(--color-ink)">
                       {t.name}
                     </p>
-                    <p className="text-xs text-stone">
-                      {t.university}
-                    </p>
+                    <p className="text-xs text-stone">{t.university}</p>
                   </div>
                 </div>
               </div>
@@ -170,10 +167,7 @@ export default function TestimonialsSection() {
               transition={{ duration: 0.3 }}
               className="card bg-white"
             >
-              <Quote
-                size={28}
-                className="text-amber opacity-30 mb-4"
-              />
+              <Quote size={28} className="text-amber opacity-30 mb-4" />
               <p className="text-(--color-ink) text-[0.95rem] leading-relaxed mb-6">
                 &ldquo;{testimonials[current].text}&rdquo;
               </p>

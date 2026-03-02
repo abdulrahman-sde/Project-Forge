@@ -4,6 +4,7 @@ import { projects, PROJECT_SLUGS, getProjectBySlug } from "../../lib/constants";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import CaseStudyContent from "./CaseStudyContent";
+import { BreadcrumbJsonLd, CaseStudyJsonLd } from "../../components/JsonLd";
 
 /* ═══════════════════════════════════════════
    STATIC GENERATION
@@ -26,12 +27,38 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
 
   if (!project) {
-    return { title: "Project Not Found — ProjectForge" };
+    return { title: "Project Not Found" };
   }
 
+  const pageUrl = `https://getgrade.dev/projects/${slug}`;
+
   return {
-    title: `${project.title} — ProjectForge Case Study`,
+    title: `${project.title} | Case Study`,
     description: project.tagline,
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      type: "article",
+      title: `${project.title} | getgrade Case Study`,
+      description: project.description,
+      url: pageUrl,
+      siteName: "getgrade",
+      images: [
+        {
+          url: `https://getgrade.dev${project.image}`,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.tagline,
+      images: [`https://getgrade.dev${project.image}`],
+    },
   };
 }
 
@@ -53,6 +80,14 @@ export default async function CaseStudyPage({
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Projects", href: "/#projects" },
+          { name: project.title, href: `/projects/${project.slug}` },
+        ]}
+      />
+      <CaseStudyJsonLd project={project} />
       <Navbar />
       <CaseStudyContent project={project} />
       <Footer />

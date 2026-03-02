@@ -15,9 +15,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-mono text-xs text-[var(--color-stone)] uppercase tracking-widest mb-6">
+            <h3 className="font-mono text-xs text-[var(--color-stone)] uppercase tracking-widest mb-6">
               [ SITEMAP ]
-            </h4>
+            </h3>
             <ul className="space-y-4">
               {["Home", "Services", "Process", "Documentation", "Contact"].map(
                 (item) => (
@@ -35,9 +35,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-mono text-xs text-[var(--color-stone)] uppercase tracking-widest mb-6">
+            <h3 className="font-mono text-xs text-[var(--color-stone)] uppercase tracking-widest mb-6">
               [ SOCIAL ]
-            </h4>
+            </h3>
             <ul className="space-y-4">
               {["Twitter", "GitHub", "LinkedIn", "Instagram"].map((item) => (
                 <li key={item}>
@@ -54,7 +54,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-[var(--color-border)] pt-10 flex flex-col md:flex-row justify-between items-center text-[var(--color-stone)] text-sm">
-          <p>© 2026 AGENCY SYSTEMS. ALL RIGHTS RESERVED.</p>
+          <p>© 2026 getgrade. ALL RIGHTS RESERVED.</p>
           <p className="font-mono mt-4 md:mt-0">
             DESIGNED BY INTELLIGENCE, CODED BY HAND.
           </p>

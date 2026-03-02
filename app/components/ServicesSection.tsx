@@ -48,7 +48,12 @@ export default function ServicesSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="services" className="section-padding" ref={ref}>
+    <section
+      id="services"
+      className="section-padding"
+      ref={ref}
+      aria-labelledby="services-heading"
+    >
       <div className="section-wrapper">
         {/* Section header */}
         <div className="max-w-150 mb-16">
@@ -61,6 +66,7 @@ export default function ServicesSection() {
             What We Offer
           </motion.span>
           <motion.h2
+            id="services-heading"
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="icon-title">
+  <title id="icon-title">getgrade Icon</title>
+  <defs>
+    <style>
+      .icon-bg { fill: #1B1B18; }
+      .icon-arrow { fill: #D4A853; }
+    </style>
+  </defs>
+  <rect class="icon-bg" x="0" y="0" width="48" height="48" rx="12" ry="12"/>
+  <!-- Upward arrow representing grade improvement -->
+  <path class="icon-arrow" d="M24,12 L34,24 L28,24 L28,36 L20,36 L20,24 L14,24 Z"/>
+  <!-- "+" for A+ grade -->
+  <line x1="36" y1="12" x2="36" y2="20" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="16" x2="40" y2="16" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
+</svg>

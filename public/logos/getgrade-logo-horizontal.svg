@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">getgrade Logo</title>
+  <desc id="logo-desc">getgrade — Complete FYP Development and Documentation Agency</desc>
+  <defs>
+    <style>
+      .icon-bg { fill: #1B1B18; }
+      .icon-arrow { fill: #D4A853; }
+      .icon-plus { fill: #FAFAF7; }
+      .wordmark { fill: #1B1B18; font-family: 'Sora', 'Inter', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 26px; letter-spacing: -0.5px; }
+    </style>
+  </defs>
+
+  <!-- Icon: Rounded square with upward arrow + A+ grade motif -->
+  <g id="icon">
+    <rect class="icon-bg" x="0" y="0" width="48" height="48" rx="12" ry="12"/>
+    <!-- Upward arrow representing grade improvement -->
+    <path class="icon-arrow" d="M24,12 L34,24 L28,24 L28,36 L20,36 L20,24 L14,24 Z"/>
+    <!-- Small "+" for A+ grade -->
+    <line x1="36" y1="12" x2="36" y2="20" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
+    <line x1="32" y1="16" x2="40" y2="16" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="60" y="36" class="wordmark">getgrade</text>
+</svg>

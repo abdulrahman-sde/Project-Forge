@@ -105,7 +105,12 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-padding bg-silk" ref={ref}>
+    <section
+      id="faq"
+      className="section-padding bg-silk"
+      ref={ref}
+      aria-labelledby="faq-heading"
+    >
       <div className="section-wrapper">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16">
           {/* Left column — heading */}
@@ -119,6 +124,7 @@ export default function FAQSection() {
               FAQ
             </motion.span>
             <motion.h2
+              id="faq-heading"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 }}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="vert-title">
+  <title id="vert-title">getgrade Logo</title>
+  <defs>
+    <style>
+      .icon-bg { fill: #1B1B18; }
+      .icon-arrow { fill: #D4A853; }
+      .wordmark { fill: #1B1B18; font-family: 'Sora', 'Inter', 'Helvetica Neue', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.3px; }
+    </style>
+  </defs>
+
+  <!-- Icon centered -->
+  <g transform="translate(36, 12)">
+    <rect class="icon-bg" x="0" y="0" width="48" height="48" rx="12" ry="12"/>
+    <path class="icon-arrow" d="M24,12 L34,24 L28,24 L28,36 L20,36 L20,24 L14,24 Z"/>
+    <line x1="36" y1="12" x2="36" y2="20" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
+    <line x1="32" y1="16" x2="40" y2="16" stroke="#FAFAF7" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Text below -->
+  <text x="60" y="88" class="wordmark" text-anchor="middle">getgrade</text>
+</svg>
