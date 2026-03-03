@@ -32,7 +32,7 @@ export default function CTASection() {
         method: form.method,
         body: formData,
         headers: {
-          Accept: 'application/json',
+          Accept: "application/json",
         },
       });
 
@@ -40,11 +40,9 @@ export default function CTASection() {
         form.reset();
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 4000);
-
       } else {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
     } catch (error) {
       console.error("Form submission error:", error);
       alert("There was an error submitting the form. Please try again later.");
@@ -53,7 +51,6 @@ export default function CTASection() {
       setLoading(false);
       form.reset();
     }
-
   };
 
   return (
@@ -105,7 +102,7 @@ export default function CTASection() {
               className="flex flex-col gap-4"
             >
               <a
-                href="https://wa.me/923001234567"
+                href="https://wa.me/923150703270"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-5 py-3.5 bg-[#25D366] text-white rounded-xl font-semibold text-sm hover:bg-[#20BD5A] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg w-fit"
@@ -133,9 +130,7 @@ export default function CTASection() {
               ].map((point, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-amber" />
-                  <span className="text-sm text-graphite">
-                    {point}
-                  </span>
+                  <span className="text-sm text-graphite">{point}</span>
                 </div>
               ))}
             </motion.div>
@@ -229,8 +224,14 @@ export default function CTASection() {
                     />
                   </div>
 
-                  <button type="submit" className="btn-primary w-full py-4" disabled={loading}>
-                    {loading ? "Submitting..." : (
+                  <button
+                    type="submit"
+                    className="btn-primary w-full py-4"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      "Submitting..."
+                    ) : (
                       <>
                         Submit Your Requirements
                         <ArrowRight size={16} className="ml-2 inline" />
